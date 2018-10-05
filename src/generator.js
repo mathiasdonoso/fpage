@@ -1,10 +1,18 @@
 const fs = require('fs')
 
 const createHtml = (template = 'default') => {
-  fs.readFile(`${__dirname}/../content/${template}/index.html`, 'utf8', (err, data) => {
+  const htmlTemplate = `${__dirname}/../content/${template}/index.html`
+  const outputFolder = `${__dirname}/../output`
+  const outputFile = `${outputFolder}/index.html`
+
+  fs.readFile(htmlTemplate, 'utf8', (err, data) => {
     if (err) console.error(err)
 
-    fs.writeFile(`${__dirname}/../output/index.html`, data, (err) => {
+    if (!fs.stat(outputFolder, (err) => console.error(err))) {
+      fs.mkdir(outputFolder, (err) => console.error(err))
+    }
+
+    fs.writeFile(outputFile, data, (err) => {
       if (err) console.error(err)
     })
   })
