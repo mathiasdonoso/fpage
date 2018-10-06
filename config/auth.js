@@ -1,7 +1,9 @@
 const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || '1817702914994233'
 const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET || 'b8d27a645126981988de1a07f64460cf'
+const FACEBOOK_CALLBACK_URL = 'http://localhost:3000/auth/facebook/callback'
 
 module.exports = {
   FACEBOOK_APP_ID,
-  FACEBOOK_APP_SECRET
+  FACEBOOK_APP_SECRET,
+  FACEBOOK_CALLBACK_URL
 }
